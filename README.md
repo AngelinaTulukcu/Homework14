@@ -8,8 +8,8 @@ The following table provides an overview of the tested functionality and their s
 
 | Number | Check Name                                 | Check Description                                       | Status  |
 |--------|--------------------------------------------|---------------------------------------------------------|---------|
-| 1      | simpleParamPositiveTestGet                 | Integer IDs with values {1, 5, 10} to get response 200 OK | Passed  |
-| 2      | simpleParamNegativeTestGet                 | Integer IDs with values {0, 11} to get response 400 Bad Request | Passed  |
+| 1      | simplePositiveTestGet                 | Integer IDs with values {1, 5, 10} to get response 200 OK | Passed  |
+| 2      | simpleNegativeTestGet                 | Integer IDs with values {0, 11} to get response 400 Bad Request | Passed  |
 | 3      | simplePositiveTestPost                     | Create an order with random generated data (ID) to get response 200 OK | Passed  |
 | 4      | simpleNegativeTestPost                     | Create an order with random generated data (ID) to get response 415 Unsupported Media Type | Passed  |
 | 5      | simplePositiveTestResponseBodyStatusOpenGet| Check the response body for status "OPEN" to get response 200 OK | Passed  |
