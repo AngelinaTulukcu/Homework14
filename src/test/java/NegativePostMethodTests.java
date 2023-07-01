@@ -17,7 +17,6 @@ public class NegativePostMethodTests {
 
         given()
                 .when()
-                // .header("Content-Type", "application/json")
                 .body(requestBody415)
                 .log().all()
                 .post("http://51.250.6.164:8080/test-orders")
