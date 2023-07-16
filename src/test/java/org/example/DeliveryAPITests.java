@@ -187,4 +187,173 @@ public class DeliveryAPITests {
                 .response();
 
     }
+
+    @Test
+    public void availableOrdersRoleStudent() {
+
+        Response response = given()
+                .when()
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .log()
+                .all()
+                .get("/orders/available")
+                .then()
+                .log()
+                .all()
+                .statusCode(HttpStatus.SC_FORBIDDEN)
+                .extract()
+                .response();
+
+        Assertions.assertEquals(HttpStatus.SC_FORBIDDEN, response.getStatusCode());
+    }
+
+    @Test
+    public void statusOrderRoleStudent() {
+
+        Order statusOrderRoleStudent = new Order(0, "Ralph", "+375290000", "hello", 0);
+        Gson gsonStatusOrderRoleStudent = new Gson();
+
+        Response response = given()
+                .when()
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .body(gsonStatusOrderRoleStudent.toJson(statusOrderRoleStudent))
+                .log()
+                .all()
+                .put("/orders/" + statusOrderRoleStudent.getId() + "/status")
+                .then()
+                .log()
+                .all()
+                .statusCode(HttpStatus.SC_FORBIDDEN)
+                .extract()
+                .response();
+
+        Assertions.assertEquals(HttpStatus.SC_FORBIDDEN, response.getStatusCode());
+    }
+
+    @Test
+    public void deleteArrayOrders() {
+
+        Order[] ordersArray = given()
+                .when()
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .log()
+                .all()
+                .get("/orders")
+                .then()
+                .log()
+                .all()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .as(Order[].class);
+
+        if (ordersArray.length > 0) {
+
+            for (int i = 0; i < ordersArray.length; i++) {
+
+                System.out.println("Deleting order with id: " + ordersArray[i].getId());
+                Response response = given()
+                        .when()
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer " + token)
+                        .log()
+                        .all()
+                        .delete("/orders/" + ordersArray[i].getId())
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(HttpStatus.SC_OK)
+                        .extract()
+                        .response();
+
+                Assertions.assertEquals(HttpStatus.SC_OK, response.getStatusCode());
+            }
+        }
+    }
+    public String generatedRandomCustomerName() {
+        RandomStringUtils randomStringUtils = new RandomStringUtils();
+        int lengthCustomerName = 10;
+        boolean useLettersCustomerName = true;
+        boolean useSymbolsCustomerName = true;
+        String generatedStringCustomerName = RandomStringUtils.random(lengthCustomerName, useLettersCustomerName, useSymbolsCustomerName);
+
+        return generatedStringCustomerName;
+    }
+
+    public String generatedRandomCustomerPhone() {
+        RandomStringUtils randomStringUtils = new RandomStringUtils();
+        int lengthCustomerPhone = 12;
+        boolean useNumbersCustomerPhone = true;
+        boolean useSymbolsCustomerPhone = false;
+        String generatedStringCustomerPhone = RandomStringUtils.random(lengthCustomerPhone, useSymbolsCustomerPhone, useNumbersCustomerPhone);
+
+        return generatedStringCustomerPhone;
+    }
+
+    public String generatedRandomComment() {
+        int lengthComment = 15;
+        boolean useLettersComment = true;
+        boolean useNumbersComment = true;
+        String generatedStringComment = RandomStringUtils.random(lengthComment, useLettersComment, useNumbersComment);
+
+        return generatedStringComment;
+    }
+
+    @Test
+    public void generatedCreateOrder() {
+        Order generatedOrder = new Order();
+        generatedOrder.setStatus("OPEN");
+        generatedOrder.setCourierId(0);
+        generatedOrder.setCustomerName(generatedRandomCustomerName());
+        generatedOrder.setCustomerPhone(generatedRandomCustomerPhone());
+        generatedOrder.setComment(generatedRandomComment());
+        generatedOrder.setId(0);
+
+        Gson gsonGeneratedOrder = new Gson();
+
+        Order[] generatedOrderArray = {generatedOrder, generatedOrder, generatedOrder};
+        for (int i = 0; i < generatedOrderArray.length; i++)
+
+            given()
+                    .when()
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + token)
+                    .body(gsonGeneratedOrder.toJson(generatedOrder))
+                    .log()
+                    .all()
+                    .post("/orders")
+                    .then()
+                    .log()
+                    .all()
+                    .statusCode(HttpStatus.SC_OK);
+
+        Assertions.assertNotNull(generatedOrder.getId());
+
+        Order[] checkNewCreatedOrders = given()
+                .when()
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .log()
+                .all()
+                .get("/orders")
+                .then()
+                .log()
+                .all()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .as(Order[].class);
+
+        Assertions.assertEquals(0, generatedOrder.getCourierId());
+
+    }
+
+    private static class RandomStringUtils {
+        public static String random(int lengthComment, boolean useLettersComment, boolean useNumbersComment) {
+            String s = null;
+            return s;
+        }
+    }
 }
+

@@ -18,6 +18,10 @@ public class Order {
         this.id = id;
     }
 
+    public Order() {
+        
+    }
+
     public void setStatus(String status) {
         this.status = status;
     }
@@ -59,4 +63,10 @@ public class Order {
     }
 
 
+    public void setCourierId(int courierId) {
+        this.courierId = courierId;
+    }
+
+    public void setId(int i) {
+    }
 }
