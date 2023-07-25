@@ -22,11 +22,9 @@ public class DeliveryWeb {
         $(By.xpath("//div[@data-name='authorizationError-popup']")).shouldBe(Condition.exist, Condition.visible);
     }
 
-    // 1.2.
+    // 1.2
     @Test
     public void insertCorrectLoginPasswordAndCheckError(){
-
-        SetupFunctions setupFunctions = new SetupFunctions();
 
         open("http://51.250.6.164:3000/signin");
 
@@ -42,8 +40,6 @@ public class DeliveryWeb {
     //1.3
     @Test
     public void insertIncorrectLoginPasswordAndCheckErrorAndRepeatSuccessfulLogin(){
-
-        SetupFunctions setupFunctions = new SetupFunctions();
 
         open("http://51.250.6.164:3000/signin");
         $(By.xpath("//input[@data-name='username-input']")).setValue("login");
