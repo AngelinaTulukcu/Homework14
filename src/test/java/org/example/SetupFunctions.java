@@ -1,5 +1,6 @@
 package org.example;
 
+import com.codeborne.selenide.SetValueOptions;
 import com.google.gson.Gson;
 import dto.User;
 
@@ -62,5 +63,14 @@ public class SetupFunctions {
         return token;
 
     }
+
+    public String getPassword() {
+        return null;
+    }
+
+    public SetValueOptions getUsername() {
+        return null;
+    }
+
 }
 
