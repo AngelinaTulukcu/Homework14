@@ -1,3 +1,59 @@
+# Checklist for Functional UI Testing - Tallinn Delivery App (Login)
+## Homework17
+
+1. Form Validation:
+   - 1. Verify that all input fields (username and password) are present and displayed correctly.
+   - 2. Check the presence and functionality of the "Login" button when entering data.
+
+2. Incorrect Data Validation:
+   - 1. Validate error messages for attempting login without filling in the required fields.
+   - 2. Verify error messages for entering invalid login credentials.
+   - 3. Check for error messages when using unauthorized characters.
+
+3. Login Functionality:
+   - 1. Test successful login with valid credentials.
+   - 2. Verify that the user is redirected to the correct page after login.
+
+4. Logout Functionality:
+   - 1. Test the correct logout process and redirection to the login page.
+
+### Table 1: Web Elements for Authentication Form
+
+| No | Web Element Description   | Xpath                        |
+|----|---------------------------|------------------------------|
+| 1  | Username Input Field      | //input[@data-name="username"]    |
+| 2  | Password Input Field      | //input[@data-name="password"]    |
+| 3  | Login Button              |//input[@data-name='signIn-button']    |
+| 4  | Error Message Display     | //div[@data-name="error-password"]|     
+
+
+### Table 2: XPaths for Table Elements
+
+| No   | Description                                    | Xpath                                              |
+|------|-----------------------------------------------|----------------------------------------------------|
+| 4.1  | Select all `<td>` elements containing names (Name)       | `//td[@class='td3']`                                |
+| 4.2  | Select all `<tr>` elements with "data-qa" starting "amount-" | `//tr[starts-with(@data-qa, 'amount-')]`           |
+| 4.3  | Select all `<tr>` elements containing `<td>` with "John Doe" | `//tr[.//td[contains(., 'John Doe')]]`             |
+
+
+### XPath Table - Usage for Element Selection
+
+For automating tests and verifying specific elements in the HTML document, the following XPaths have been identified:
+
+#### 4.1 - Select all <td> elements containing names (Name)
+
+XPath: `//td[@class='td3']`
+
+
+#### 4.2 - Select all <tr> elements with "data-qa" starting "amount-"
+
+XPath: `//tr[starts-with(@data-qa, 'amount-')]`
+
+
+#### 4.3 - Select all <tr> elements containing <td> with "John Doe"
+
+XPath: `//tr[.//td[contains(., 'John Doe')]]`
+
 # Homework10
 
 ## Project Description
