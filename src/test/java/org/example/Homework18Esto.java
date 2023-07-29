@@ -20,7 +20,6 @@ public class Homework18Esto {
 
         $(By.xpath("//*[@id='phone-field']/ ..//input[@class='esto-text-input-container__input']")).setValue("+375298888");
         $(By.xpath("//*[@id='pin-field']/..//input[@class='esto-text-input-container__input']")).setValue("1111");
-//        $(By.xpath("//*[@id='pin-field']/ ..//input")).setValue("48812050267");
 
         $(By.xpath("//button[@estocypressdata='mobile-id-login-button']")).shouldBe(Condition.exist, Condition.visible);
     }
