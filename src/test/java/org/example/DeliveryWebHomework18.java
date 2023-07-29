@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class DeliveryWeb{
+public class DeliveryWebHomework18 {
 
     @AfterEach
     public void tearDown(){

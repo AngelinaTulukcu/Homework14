@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class DeliveryWeb18 {
+public class Homework18Login {
     static SetupFunctions setupFunctions;
 
     @BeforeAll
