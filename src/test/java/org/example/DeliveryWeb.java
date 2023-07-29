@@ -32,7 +32,7 @@ public class DeliveryWeb{
     // 1.2
     @Test
     public void insertCorrectLoginPasswordAndCheckError(){
-
+         
         SetupFunctions setupFunctions = new SetupFunctions();
 
         open("http://51.250.6.164:3000/signin");
@@ -50,8 +50,7 @@ public class DeliveryWeb{
     @Test
     public void insertIncorrectLoginPasswordAndCheckErrorAndRepeatSuccessfulLogin(){
 
-        SetupFunctions setupFunctions = new SetupFunctions();
-
+            SetupFunctions setupFunctions = new SetupFunctions();
         open("http://51.250.6.164:3000/signin");
         $(By.xpath("//input[@data-name='username-input']")).setValue("Angelina");
         $(By.xpath("//input[@data-name='password-input']")).setValue("test");
