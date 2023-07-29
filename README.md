@@ -1,21 +1,21 @@
 #Homework18 task 2.1
 
-### Test Descriptions and Results
+### Test Descriptions and Results Esto
 
 | №  | Test Name                        | Description                                                                                                                                                      | Status   |
 |----|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |    | Positive Tests                   |                                                                                                                                                                  |          |
 |    | Mobiil-ID                        |                                                                                                                                                                  |          |
-| 1  | Successful login                | Enter an existing Estonian phone number with connected Mobiil-ID (+37258066606) in the "Mobiili nr" field and an existing Estonian isikukood (48812050267) in the "Isikukood" field. The "Logi sisse" button should be active. | Passed   |
+| 1  | Successful login                | Enter an existing Estonian phone number with connected Mobiil-ID (+3727345213) in the "Mobiili nr" field and an existing Estonian isikukood (48812050267) in the "Isikukood" field. The "Logi sisse" button should be active. | Passed   |
 |    | Smart-ID                         |                                                                                                                                                                  |          |
-| 2  | Successful login                | Enter an existing Estonian isikukood (48812050267) in the "Isikukood" field. The "Logi sisse" button should be active.                                           | Passed   |
+| 2  | Successful login                | Enter an existing Estonian isikukood (134563456) in the "Isikukood" field. The "Logi sisse" button should be active.                                           | Passed   |
 |    | Parool                           |                                                                                                                                                                  |          |
-| 3  | Successful login                | Enter a valid kasutajanimi ("Login-test") and a valid parool ("Parool-test") in the respective fields. The "Logi sisse" button should be active.                | Passed   |
+| 3  | Successful login                | Enter a valid kasutajanimi ("Angelina") and a valid parool ("password") in the respective fields. The "Logi sisse" button should be active.                | Passed   |
 |    | Negative Tests                   |                                                                                                                                                                  |          |
 |    | Smart-ID                         |                                                                                                                                                                  |          |
-| 4  | Unsuccessful login              | Enter an isikukood longer than the standard isikukood by 1 digit (488120502677) in the "Isikukood" field. An error message should be displayed.                    | Passed   |
+| 4  | Unsuccessful login              | Enter an isikukood longer than the standard isikukood by 1 digit ("111111111111") in the "Isikukood" field. An error message should be displayed.                    | Passed   |
 |    | Parool                           |                                                                                                                                                                  |          |
-| 5  | Unsuccessful login              | Leave the Kasutajanimi field empty (without values) and enter a space in the Parool field. An error message should be displayed.                                 | Failed   |
+| 5  | Unsuccessful login              | Leave the Kasutajanimi field with ("null") and enter a ("null") value in the Parool field. An error message should be displayed.                                 | Failed   |
 
 ---
 
