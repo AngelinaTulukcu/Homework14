@@ -13,13 +13,13 @@ public class Homework18Esto {
     // Task 2.2.
     // 1. Successful login Mobiil-ID
     @Test
-    public void buttonLoginActiveMobilId(){
+    public void buttonLogiSisseActiveMobiilId(){
 
         Configuration.browser="chrome";
         open("https://profile.esto.ee/login/mobile-id");
 
-        $(By.xpath("//*[@id='phone-field']/ ..//input[@class='esto-text-input-container__input']")).setValue("+375298888");
-        $(By.xpath("//*[@id='pin-field']/..//input[@class='esto-text-input-container__input']")).setValue("1111");
+        $(By.xpath("//*[@id='phone-field']/ ..//input[@class='esto-text-input-container__input']")).setValue("+3727345213");
+        $(By.xpath("//*[@id='pin-field']/..//input[@class='esto-text-input-container__input']")).setValue("134563456");
 //        $(By.xpath("//*[@id='pin-field']/ ..//input")).setValue("48812050267");
 
         $(By.xpath("//button[@estocypressdata='mobile-id-login-button']")).shouldBe(Condition.exist, Condition.visible);
@@ -27,25 +27,25 @@ public class Homework18Esto {
 
     // 2. Successful login Smart-ID
     @Test
-    public void buttonLoginActiveSmartId(){
+    public void buttonLogiSisseActiveSmartId(){
 
         System.setProperty("selenide.browser","chrome");
         open ("https://profile.esto.ee/login/smart-id");
 
-        $(By.xpath("//*[@id='login-field']/..//input[@class='esto-text-input-container__input']")).setValue("88888888");
+        $(By.xpath("//*[@id='login-field']/..//input[@class='esto-text-input-container__input']")).setValue("134563456");
 
         $(By.xpath("//button[@class='form-button esto-button esto-button__accent']")).shouldBe(Condition.exist,Condition.visible);
     }
 
-    // 3. Successful login Password
+    // 3. Successful login Parol
     @Test
-    public void buttonLoginActivePassword(){
+    public void buttonLogiSisseActiveParool(){
 
         System.setProperty("selenide.browser","chrome");
         open("https://profile.esto.ee/login/password");
 
         $(By.xpath("//*[@id='login-field']/..//input[@class='esto-text-input-container__input']")).setValue("Angelina");
-        $(By.xpath("//*[@id='password-field']/..//input[@class='esto-text-input-container__input']")).setValue("test-password");
+        $(By.xpath("//*[@id='password-field']/..//input[@class='esto-text-input-container__input']")).setValue("password");
 
         $(By.xpath("//button[@class='form-button esto-button esto-button__accent']")).shouldBe(Condition.exist, Condition.visible);
     }
@@ -57,16 +57,16 @@ public class Homework18Esto {
         System.setProperty("selenide.browser", "chrome");
         open("https://profile.esto.ee/login/smart-id");
 
-        $(By.xpath("//*[@id='login-field']/..//input[@class='esto-text-input-container__input']")).setValue("88888888");
+        $(By.xpath("//*[@id='login-field']/..//input[@class='esto-text-input-container__input']")).setValue("111111111111");
 
         $(By.xpath("//button[@class='form-button esto-button esto-button__accent']")).click();
 
         $(By.xpath("//*[@class='error-text ng-star-inserted']")).shouldBe(Condition.exist, Condition.visible);
     }
 
-    // 5. Unsuccessful login Password
+    // 5. Unsuccessful login Parool
     @Test
-    public void errorForUnsuccessfulLoginPassword (){
+    public void errorForUnsuccessfulLoginParool (){
 
         Configuration.browser="chrome";
         open("https://profile.esto.ee/login/password");
