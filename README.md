@@ -1,3 +1,17 @@
+# Homework 20
+
+## Test Results and Test Scenarios
+
+| Test Scenario                                           | Input           | Expected Output                                          | Result   |
+|---------------------------------------------------------|-----------------|----------------------------------------------------------|----------|
+| Positive Scenario: Valid Input (Factorial of 5)        | 5               | Factorial of a number 5 equals: 120                     | Passed   |
+| Positive Scenario: Valid Input (Factorial of 10)       | 10              | Factorial of a number 10 equals: 3628800                | Passed   |
+| Positive Scenario: Valid Input (Factorial of 0)        | 0               | Factorial of a number 0 equals: 1                       | Passed   |
+| Negative Scenario: Negative Number Input              | -5              | Error: Factorial is not defined for negative numbers    | Passed   |
+| Negative Scenario: Non-integer Input                   | abc (Non-integer input) | Error: Invalid number entered                        | Passed   |
+
+
+
 # Homework18 task 2.1
 
 ### Test Descriptions and Results Esto
