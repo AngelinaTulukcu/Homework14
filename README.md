@@ -1,3 +1,34 @@
+# Homework 20
+
+## Test Results and Test Scenarios
+
+| Test Scenario                                           | Input           | Expected Output                                          | Result   |
+|---------------------------------------------------------|-----------------|----------------------------------------------------------|----------|
+| Positive Scenario: Valid Input (Factorial of 5)        | 5               | Factorial of a number 5 equals: 120                     | Passed   |
+| Positive Scenario: Valid Input (Factorial of 10)       | 10              | Factorial of a number 10 equals: 3628800                | Passed   |
+| Positive Scenario: Valid Input (Factorial of 0)        | 0               | Factorial of a number 0 equals: 1                       | Passed   |
+| Negative Scenario: Negative Number Input              | -5              | Error: Factorial is not defined for negative numbers    | Passed   |
+| Negative Scenario: Non-integer Input                   | abc (Non-integer input) | Error: Invalid number entered                        | Passed   |
+
+## Test Scenarios
+
+1. **Positive Scenarios:**
+   - User inputs a positive integer (e.g., 5, 10, 0) to calculate the factorial.
+   - The program successfully calculates the factorial of the input number and displays the result.
+
+2. **Negative Scenarios:**
+   - User inputs a negative integer (e.g., -5) to calculate the factorial.
+   - The program throws an `IllegalArgumentException` and displays an error message indicating that the factorial is not defined for negative numbers.
+
+3. **Invalid Input Scenario:**
+   - User inputs a non-integer value (e.g., abc) instead of an integer.
+   - The program throws an `InputMismatchException` and displays an error message indicating that an invalid number is entered.
+
+4. **Edge Case Scenario:**
+   - User inputs 0 as the input number to calculate the factorial.
+   - The program correctly returns 1 as the factorial of 0.
+
+
 # Homework18 task 2.1
 
 ### Test Descriptions and Results Esto
