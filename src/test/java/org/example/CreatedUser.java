@@ -1,8 +1,10 @@
 package org.example;
 
 import com.google.gson.Gson;
+import io.restassured.RestAssured;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -76,7 +78,56 @@ public class CreatedUser {
         return generatedStringPhone;
     }
 
-    private class RandomUser {
+    @Test
+    public void toCreateUserDeserialization(){
+        RandomUser randomUserEmptyDeserialization = new RandomUser();
+        randomUserEmptyDeserialization.setId(8);
+        randomUserEmptyDeserialization.setUsername("Mike");
+        randomUserEmptyDeserialization.setFirstName(generatedRandomFirstName());
+        randomUserEmptyDeserialization.setLastName("Kork");
+        randomUserEmptyDeserialization.setEmail("mikekork@gmail.com");
+        randomUserEmptyDeserialization.setPassword("12345678");
+        randomUserEmptyDeserialization.setPhone(generatedRandomPhone());
+        randomUserEmptyDeserialization.setUserStatus(2023);
+//        randomUserEmptyDeserialization.setCode(HttpStatus.SC_OK);
+//        randomUserEmptyDeserialization.setType("unknown");
+//        randomUserEmptyDeserialization.setMessage("8");
+
+
+        Gson gsonDeserialization = new Gson();
+        Response responseDeserialization = (Response) RestAssured.given()
+                .when()
+                .header("Content-Type", "application/json")
+                .body(gsonDeserialization.toJson(randomUserEmptyDeserialization))
+                .log()
+                .all()
+                .post("https://petstore.swagger.io/v2/user")
+                .then()
+                .log()
+                .all()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .response();
+
+        RandomUser createdUser = gsonDeserialization.fromJson((String) responseDeserialization.asString(), RandomUser.class);
+
+        Assertions.assertAll ( "Asserts for CreateUser",
+                () -> Assertions.assertEquals(HttpStatus.SC_OK, createdUser.getCode(), "First Assert"),
+                //         () -> assertNull( createdUser.getFirstName(), "Second Assert"),
+                () -> Assertions.assertEquals("8", createdUser.getMessage(), "Third Assert"),
+                //         () -> assertNotEquals(generatedRandomPhone(),createdUser.getPhone(),"FourthAssert"),
+                () -> Assertions.assertNotNull(createdUser.getType(),"Fifth Assert")
+        );
+    }
+
+    private class Response {
+        public Object asString() {
+            return null;
+        }
+    }
+}
+
+    class RandomUser {
         private int id;
         private String username;
         private String firstName;
@@ -164,6 +215,20 @@ public class CreatedUser {
         public int getUserStatus() {
             return userStatus;
         }
+
+        public String getMessage() {
+            String s = null;
+            return s;
+        }
+
+        public int getCode() {
+            return 0;
+        }
+
+        public Object getType() {
+            Object o = null;
+            return o;
+        }
     }
-}
+
 

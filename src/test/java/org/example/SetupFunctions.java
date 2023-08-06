@@ -93,5 +93,26 @@ public class SetupFunctions {
         return token;
     }
 
+    public String getDbhost() {
+        String s = null;
+        return s;
+    }
+
+    public String getDbusername() {
+        return null;
+    }
+
+    public String getDbport() {;
+        return null;
+    }
+
+    public String getDbname() {
+        return null;
+    }
+
+    public String getDbpassword() {
+
+        return null;
+    }
 }
 
